@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>09e5ba9f-6c34-4611-87a9-e7d5d997bab5</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommifyInterview.MigrationService\Aspire.MigrationService.csproj" />
+    <ProjectReference Include="..\CommifyInterview.Web\CommifyInterview.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.2.2" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="8.2.2" />
+  </ItemGroup>
+
+</Project>

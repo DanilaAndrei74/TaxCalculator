@@ -1,0 +1,88 @@
+﻿@page "/"
+@inject DatabaseContext _dbContext
+
+<PageTitle>Hello, Commify</PageTitle>
+
+<div class="container">
+    <div class="input-row">
+        <label for="salaryInput" class="label">Gross Annual Salary:</label>
+        <input @bind-value="GrossAnnualSalary" id="salaryInput" type="number" class="input" />
+        <button @onclick="Calculate" class="button">Calculate</button>
+    </div>
+</div>
+
+@if (Calculated)
+{
+    <hr class="divider">
+    <div class="container results">
+        <p class="result-row"><span>Gross Annual Salary:</span> <span>£ @GrossAnnualSalary.ToString("F2")</span></p>
+        <p class="result-row"><span>Gross Monthly Salary:</span> <span>£ @GrossMonthlySalary.ToString("F2")</span></p>
+        <p class="result-row"><span>Net Annual Salary:</span> <span>£ @NetAnnualSalary.ToString("F2")</span></p>
+        <p class="result-row"><span>Net Monthly Salary:</span> <span>£ @NetMonthlySalary.ToString("F2")</span></p>
+        <p class="result-row"><span>Annual Tax Paid:</span> <span>£ @AnnualTaxPaid.ToString("F2")</span></p>
+        <p class="result-row"><span>Monthly Tax Paid:</span> <span>£ @MonthlyTaxPaid.ToString("F2")</span></p>
+    </div>
+
+    <hr class="divider">
+    <div class="container results">
+        @foreach(var taxBand in TaxBands)
+        {
+            @if(taxBand.Threshold == double.MaxValue)
+            {
+                <p class="result-row"><span>@displayThreshold+</span> <span>@taxBand.TaxPercentage%</span></p>
+            }
+            else
+            {
+                <p class="result-row"><span>@displayThreshold - @taxBand.Threshold</span> <span>@taxBand.TaxPercentage%</span></p>
+            }
+            displayThreshold = taxBand.Threshold;
+        }
+    </div>
+}
+
+
+@code{
+    private List<TaxBand> TaxBands;
+    private double GrossAnnualSalary { get; set; }
+    private double GrossMonthlySalary { get; set; }
+    private double NetAnnualSalary { get; set; }
+    private double NetMonthlySalary { get; set; }
+    private double AnnualTaxPaid { get; set; }
+    private double MonthlyTaxPaid { get; set; }
+    private bool Calculated = false;
+
+    public double displayThreshold = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        TaxBands = _dbContext.TaxBands.ToList();
+        StateHasChanged();
+    }
+
+    public void Calculate()
+    {
+        if (GrossAnnualSalary < 0) GrossAnnualSalary = 0;
+
+        double taxToBePaid = 0;
+        double lowerThreshold = 0;
+        TaxBands.OrderBy(band => band.Threshold);
+        foreach(var taxBand in TaxBands)
+        {
+            if (GrossAnnualSalary > lowerThreshold)
+            {
+                var taxableAtThisRate = Math.Min(taxBand.Threshold - lowerThreshold, GrossAnnualSalary - lowerThreshold);
+                var taxThisBand = taxableAtThisRate * taxBand.TaxPercentage / 100;
+                taxToBePaid += taxThisBand;
+                lowerThreshold = taxBand.Threshold;
+            }
+            else break;
+        }
+        GrossMonthlySalary = Math.Round(GrossAnnualSalary / 12 ,2);
+        AnnualTaxPaid = Math.Round(taxToBePaid ,2);
+        NetAnnualSalary = Math.Round(GrossAnnualSalary - AnnualTaxPaid ,2);
+        NetMonthlySalary = Math.Round(NetAnnualSalary / 12 ,2);
+        MonthlyTaxPaid = Math.Round(AnnualTaxPaid / 12 ,2);
+
+        Calculated = true;
+    }
+}

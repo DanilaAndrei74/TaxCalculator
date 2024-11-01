@@ -1,0 +1,54 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommifyInterview.AppHost", "CommifyInterview.AppHost\CommifyInterview.AppHost.csproj", "{F61C1A76-F78A-4D98-8C85-833A8F27A4AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommifyInterview.ServiceDefaults", "CommifyInterview.ServiceDefaults\CommifyInterview.ServiceDefaults.csproj", "{F94C9B37-097F-47F4-BF11-BD93556C59CF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommifyInterview.Web", "CommifyInterview.Web\CommifyInterview.Web.csproj", "{E254B197-5126-4173-B0A4-1F88C4DCF529}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.MigrationService", "CommifyInterview.MigrationService\Aspire.MigrationService.csproj", "{BFB0CDD7-B706-43CC-BAC7-77E952A4C3DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommifyInterview.Entities", "CommifyInterview.Entities\CommifyInterview.Entities.csproj", "{7C27099E-1E50-4D8D-9614-F629E48AF8A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{67057F24-3B1A-4483-8157-6B5DE618A99E}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F61C1A76-F78A-4D98-8C85-833A8F27A4AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F61C1A76-F78A-4D98-8C85-833A8F27A4AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F61C1A76-F78A-4D98-8C85-833A8F27A4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F61C1A76-F78A-4D98-8C85-833A8F27A4AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F94C9B37-097F-47F4-BF11-BD93556C59CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94C9B37-097F-47F4-BF11-BD93556C59CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94C9B37-097F-47F4-BF11-BD93556C59CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94C9B37-097F-47F4-BF11-BD93556C59CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E254B197-5126-4173-B0A4-1F88C4DCF529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E254B197-5126-4173-B0A4-1F88C4DCF529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E254B197-5126-4173-B0A4-1F88C4DCF529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E254B197-5126-4173-B0A4-1F88C4DCF529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFB0CDD7-B706-43CC-BAC7-77E952A4C3DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFB0CDD7-B706-43CC-BAC7-77E952A4C3DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFB0CDD7-B706-43CC-BAC7-77E952A4C3DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFB0CDD7-B706-43CC-BAC7-77E952A4C3DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C27099E-1E50-4D8D-9614-F629E48AF8A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C27099E-1E50-4D8D-9614-F629E48AF8A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C27099E-1E50-4D8D-9614-F629E48AF8A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C27099E-1E50-4D8D-9614-F629E48AF8A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86289C87-F7DA-481A-AAAA-3802546806E8}
+	EndGlobalSection
+EndGlobal
