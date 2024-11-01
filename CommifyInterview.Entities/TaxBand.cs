@@ -6,7 +6,7 @@ namespace CommifyInterview.Entities
     public class TaxBand
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int Threshold { get; set; }
         public int TaxPercentage { get; set; }

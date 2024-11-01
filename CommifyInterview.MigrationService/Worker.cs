@@ -73,9 +73,9 @@ public class Worker(
     {
          var taxBands = new List<TaxBand>()
          {
-            new TaxBand {Id = 0, Threshold = 5000, TaxPercentage = 0 },
-            new TaxBand {Id = 1, Threshold = 20000, TaxPercentage = 20 },
-            new TaxBand {Id = 2, Threshold = int.MaxValue, TaxPercentage = 40 },
+            new TaxBand { Threshold = 5000, TaxPercentage = 0 },
+            new TaxBand { Threshold = 20000, TaxPercentage = 20 },
+            new TaxBand { Threshold = int.MaxValue, TaxPercentage = 40 },
 
          };
 

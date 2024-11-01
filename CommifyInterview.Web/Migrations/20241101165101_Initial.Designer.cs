@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CommifyInterview.Web.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20241101163220_Initial")]
+    [Migration("20241101165101_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -27,7 +27,10 @@ namespace CommifyInterview.Web.Migrations
             modelBuilder.Entity("CommifyInterview.Entities.TaxBand", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("TaxPercentage")
                         .HasColumnType("integer");

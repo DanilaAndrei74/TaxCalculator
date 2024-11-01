@@ -27,7 +27,7 @@
     <div class="container results">
         @foreach(var taxBand in TaxBands)
         {
-            @if(taxBand.Threshold == double.MaxValue)
+            @if(taxBand.Threshold == int.MaxValue)
             {
                 <p class="result-row"><span>@displayThreshold+</span> <span>@taxBand.TaxPercentage%</span></p>
             }

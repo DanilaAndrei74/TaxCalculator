@@ -24,4 +24,8 @@
     <ProjectReference Include="..\CommifyInterview.ServiceDefaults\CommifyInterview.ServiceDefaults.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

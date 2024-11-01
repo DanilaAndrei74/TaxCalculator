@@ -24,7 +24,10 @@ namespace CommifyInterview.Web.Migrations
             modelBuilder.Entity("CommifyInterview.Entities.TaxBand", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("TaxPercentage")
                         .HasColumnType("integer");
